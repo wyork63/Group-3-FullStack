@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+//create user model
 class User extends Model {}
 
+//define table columns and configuration
 User.init(
   {
     id: {
@@ -27,6 +29,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+        //this means the password must be at least 6 character long
         len: [6],
       },
     },
