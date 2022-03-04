@@ -27,4 +27,7 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+// added country relationship to post once created 
+
+
 module.exports = { User, Post, Comment }
