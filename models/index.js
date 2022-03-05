@@ -15,7 +15,7 @@ Post.belongsTo(User, {
   onDelete: 'cascade',
 });
 
-Country.has(Post, {
+Country.hasMany(Post, {
   foreignKey: 'country_id'
 })
 
@@ -61,7 +61,7 @@ Post.hasMany(Activity, {
   foreignKey: 'post_id'
 });
 
-Activity.hasMany(Post, {
+Activity.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
