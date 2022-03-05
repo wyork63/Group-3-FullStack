@@ -46,4 +46,4 @@ Comment.belongsTo(User, {
 // added country relationship to post once created 
 
 
-module.exports = { User, Post, Comment }
+module.exports = { User, Post, Comment, Country, Activity, ActivityLog }
