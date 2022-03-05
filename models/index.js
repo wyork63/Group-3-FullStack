@@ -24,6 +24,20 @@ Post.belongsTo(Country, {
   onDelete: 'cascade'
 });
 
+//many to many relationshiop using comment through table
+User.belongsToMany(Post, {
+  through: Comment,
+  as: 'commented_posts',
+  foreignKey: 'user_id'
+});
+
+Post.belongsToMany(User, {
+  through: Comment,
+  as: 'commented_posts',
+  foreignKey: 'post_id'
+});
+
+//direct relationship between post and comment OR yser and comment
 User.hasMany(Comment, {
   foreignKey: 'user_id'
 });
