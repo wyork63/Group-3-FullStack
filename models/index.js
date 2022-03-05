@@ -11,19 +11,35 @@ User.hasMany(Post, {
 });
 
 Post.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'cascade',
 });
 
-Post.belongsTo(Country, {
+Country.has(Post, {
   foreignKey: 'country_id'
+})
+
+Post.belongsTo(Country, {
+  foreignKey: 'country_id',
+  onDelete: 'cascade'
 });
 
 User.hasMany(Comment, {
   foreignKey: 'user_id'
 });
 
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'cascade'
+});
+
 Post.hasMany(Comment, {
   foreignKey: 'post_id'
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'cascade'
 });
 
 //should this be activity_log? not sure
@@ -34,16 +50,5 @@ Post.hasMany(Activity, {
 Activity.hasMany(Post, {
   foreignKey: 'post_id'
 });
-
-Comment.belongsTo(Post, {
-  foreignKey: 'post_id'
-});
-
-Comment.belongsTo(User, {
-  foreignKey: 'user_id'
-});
-
-// added country relationship to post once created 
-
 
 module.exports = { User, Post, Comment, Country, Activity, ActivityLog }
