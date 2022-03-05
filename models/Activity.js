@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-//create Country model
-class Country extends Model { }
+//create Activity model
+class Activity extends Model { }
 
 //define table columns and configuration
-Country.init(
+Activity.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,12 +13,12 @@ Country.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        activityName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                //name should be at least 2 character long
-                len: [2]
+                //name should be at least 6 character long
+                len: [6]
             }
         },
     },
@@ -26,8 +26,8 @@ Country.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'country'
+        modelName: 'activity'
     }
 );
 
-module.exports = Country;
+module.exports = Activity;
