@@ -2,7 +2,30 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 //create post model
-class Post extends Model { }
+class Post extends Model {
+    static countcomment(body, models) {
+        return models.Comment.create({
+          user_id: body.user_id,
+          post_id: body.post_id
+        }).then(() => {
+          return Post.findOne({
+            where: {
+              id: body.post_id
+            },
+            attributes: [
+              'id',
+              'post_url',
+              'title',
+              'created_at',
+              [
+                sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'),
+                'comment_count'
+              ]
+            ]
+          });
+        });
+      }
+ }
 
 //define table columns and configuration
 Post.init(
@@ -19,6 +42,13 @@ Post.init(
             validate: {
                 //title should be at least 4 character long
                 len: [4]
+            }
+        },
+        post_url: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+              isURL: true
             }
         },
         text: {
