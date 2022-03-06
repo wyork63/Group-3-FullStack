@@ -57,9 +57,17 @@ router.get('/', (req, res) => {
         res.status(400).json({ message: 'The provided password is incorrect' });
         return;
       }
+
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
       
       //accessing the session information
       console.log("saving session");
+      });
+    });
+});
 
 router.get('/:id', (req, res) => {
   User.findOne({
@@ -151,6 +159,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 })
-
 module.exports = router;
 
