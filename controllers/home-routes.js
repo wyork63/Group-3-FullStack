@@ -2,7 +2,19 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
   res.render('index');
-})
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
 // const { User, Post } = require('../models');
 
 
