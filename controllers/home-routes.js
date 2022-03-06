@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'post_url',
+        'text',
         'title',
         'created_at',
         // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -60,7 +60,7 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'post_url',
+        'text',
         'title',
         'created_at',
         // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
