@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+const { CLIENT_PS_MULTI_RESULTS } = require('mysql/lib/protocol/constants/client');
 const { User, Post, Comment } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
@@ -21,16 +22,17 @@ router.get('/', (req, res) => {
       email: req.body.email,
       password: req.body.password
     })
-      .then(dbUserData => {
-          //accessing the session information
-        req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
-          req.session.loggedIn = true;
+    //   .then(dbUserData => {
+    //       //accessing the session information
+    //     req.session.save(() => {
+    //       req.session.user_id = dbUserData.id;
+    //       req.session.username = dbUserData.username;
+    //       req.session.loggedIn = true;
     
-          res.json(dbUserData);
-        });
-      })
+    //       res.json(dbUserData);
+    //     });
+    //   })
+      console.log('save session')
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -78,7 +80,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'textl', 'created_at']
+        attributes: ['id', 'title', 'text', 'created_at']
       },
     ]
   })

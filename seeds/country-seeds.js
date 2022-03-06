@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Country } = require('../models');
+const { Country, post } = require('../models');
 
 const countrydata = [
   {
@@ -19,6 +19,6 @@ const countrydata = [
   },
 ];
 
-const seedCountries = () => User.bulkCreate(countrydata);
+const seedCountries = () => Country.bulkCreate(countrydata);
 
 module.exports = seedCountries;

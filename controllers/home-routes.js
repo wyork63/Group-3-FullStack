@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('homepage');
 });
 
 router.get('/signup', (req, res) => {
@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
       .then(dbPostData => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+        res.render('index', { posts, loggedIn: req.session.loggedIn });
       })
       .catch(err => {
         console.log(err);

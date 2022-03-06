@@ -8,7 +8,7 @@
     </div>
     <br>
     <div>
-      <label for="post-text">Description</label>
+      <label for="text">Description</label>
     </div>
     <div>
         <textarea rows="7" cols="40" id="text" name="text"> </textarea>
@@ -29,31 +29,5 @@
 </div>
 
 
-{{!-- need to change classes for below --}}
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    <article class="post">
-      <div class="title">
-        <a> {{post.title}} </a>
-      </div>
-      <div class="meta">
-        {{Post.text}}
-        |
-        <a href="/post/{{Post.id}}">{{Post.comments.length}} comment(s)</a>
-      </div>
-    </article>
-
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> posts post }}
-  </li>
-  {{/each}}
-</ol>
-
-  </li>
-  {{/each}}
-</ol>
 
 <script src="/public/javascript/add-post.js"></script>
