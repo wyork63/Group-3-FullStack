@@ -162,3 +162,8 @@ img {
   align-content: flex-start;
   align-items: center;
 }
+
+#text{
+height: 200px;
+width: 50px
+}
