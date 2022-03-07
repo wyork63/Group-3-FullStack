@@ -10,6 +10,7 @@
 }
 
 body {
+  background-color: blue;
   font-family: Arial;
   margin: 0;
   display: flex;
