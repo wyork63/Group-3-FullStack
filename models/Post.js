@@ -36,13 +36,9 @@ Post.init(
                 key: 'id'
             }
         },
-        // country_id: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'country',
-        //         key: 'id'
-        //     }
-        // }
+        country_id: {
+            type: DataTypes.STRING,    
+        }
     },
     {
         sequelize,
