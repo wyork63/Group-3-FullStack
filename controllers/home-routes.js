@@ -4,8 +4,16 @@ router.get('/', (req, res) => {
   res.render('homepage');
 });
 
+router.get('/add-post', (req, res) => {
+  res.render('add-post')
+});
+
 router.get('/signup', (req, res) => {
   res.render('signup');
+});
+
+router.get('/login', (req, res) => {
+  res.render('login');
 });
 // const { User, Post } = require('../models');
 
