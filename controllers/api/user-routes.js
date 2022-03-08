@@ -22,17 +22,17 @@ router.get('/', (req, res) => {
       email: req.body.email,
       password: req.body.password
     })
-    //   .then(dbUserData => {
-    //       //accessing the session information
-    //     req.session.save(() => {
-    //       req.session.user_id = dbUserData.id;
-    //       req.session.username = dbUserData.username;
-    //       req.session.loggedIn = true;
-    
-    //       res.json(dbUserData);
-    //     });
-    //   })
-      console.log('save session')
+      .then(dbUserData => {
+        console.log('hello')
+          //accessing the session information
+        req.session.save(() => {
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.loggedIn = true;
+        });
+        console.log('save session')
+        res.json(dbUserData);
+      })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

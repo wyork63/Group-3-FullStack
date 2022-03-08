@@ -18,7 +18,7 @@ async function signupFormHandler(event) {
   
       // test the response
       if (response.ok) {
-        console.log('Sign-up process success');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }

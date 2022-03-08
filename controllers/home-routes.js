@@ -54,9 +54,32 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
+router.get('/spain', (req, res) => {
+  res.render('spain');
+});
+
+router.get('/italy', (req, res) => {
+  res.render('italy');
+});
+
+router.get('/turkie', (req, res) => {
+  res.render('turkie');
+});
+
+router.get('/usa', (req, res) => {
+  res.render('usa');
+});
+
+router.get('/greatBritain', (req, res) => {
+  res.render('greatBritain');
+});
+
+
 // const { User, Post } = require('../models');
 
 
@@ -174,8 +197,8 @@ router.get('/signup', (req, res) => {
 //       return;
 //     }
   
-//     res.render('login');
-//   });
+    res.render('homepage');
+  });
 
 //   router.get('/post/:id', (req, res) => {
 //     Post.findOne({

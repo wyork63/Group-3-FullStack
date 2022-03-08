@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 // add country to const below 
-const { Post, User, Comment } = require('../../models') 
+const { Post, User, Comment, Country } = require('../../models') 
 
 // get all posts 
 router.get('/', (req, res) => {
@@ -26,7 +26,11 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
-        }
+        },
+        { 
+          model: Country,
+          attributes: ['id']
+          }
       ]
     })
       .then(dbPostData => res.json(dbPostData))
@@ -60,6 +64,10 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
+        },
+        {
+          model: Country,
+          attributes: ['name']
         }
       ]
     })

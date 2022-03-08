@@ -22,11 +22,6 @@ const commentdata = [
     post_id: 1
   },
   {
-    comment_text: 'comment 5',
-    user_id: 2,
-    post_id: 4
-  },
-  {
     comment_text: 'comment 6',
     user_id: 4,
     post_id: 1
