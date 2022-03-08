@@ -12,9 +12,8 @@ router.get('/', (req, res) => {
         'title',
         'text',
         'created_at',
-        // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
-      order: [['created_at', 'DESC']],
+      order: [['created_at', 'Desc']],
       include: [
         {
           model: Comment,
@@ -78,11 +77,9 @@ router.get('/', (req, res) => {
   });
   
   router.post('/', (req, res) => {
-    // expects {title: 'Sicily is great', text: 'gorgeous this time of the year', country: 'Italy', user_id: 1}
     Post.create({
       title: req.body.title,
       text: req.body.text,
-      country_id: req.body.country_id,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -91,6 +88,19 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+  
+  // router.put('/upvote', (req, res) => {
+  //   // make sure the session exists first
+  //   if (req.session) {
+  //     // pass session id along with all destructured properties on req.body
+  //     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+  //       .then(updatedVoteData => res.json(updatedVoteData))
+  //       .catch(err => {
+  //         console.log(err);
+  //         res.status(500).json(err);
+  //       });
+  //   }
+  // });
   
   router.put('/:id', (req, res) => {
     Post.update(
