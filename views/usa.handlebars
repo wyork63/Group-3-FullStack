@@ -1,3 +1,11 @@
 <div>
-    <h1>USA is beautiful</h1>
+    <h1>What to see in the United States of America</h1>
 </div>
+
+<ul class="countryList">
+    {{#each Post}}
+        {{#if country_id = 1}}
+    <li>{{this}}</li>
+        {{/if}}
+    {{/each}}
+</ul>
