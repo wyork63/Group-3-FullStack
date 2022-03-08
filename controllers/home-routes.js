@@ -15,6 +15,27 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login');
 });
+
+router.get('/spain', (req, res) => {
+  res.render('spain');
+});
+
+router.get('/italy', (req, res) => {
+  res.render('italy');
+});
+
+router.get('/turkie', (req, res) => {
+  res.render('turkie');
+});
+
+router.get('/usa', (req, res) => {
+  res.render('usa');
+});
+
+router.get('/greatBritain', (req, res) => {
+  res.render('greatBritain');
+});
+
 // const { User, Post } = require('../models');
 
 const sequelize = require('../config/connection');
