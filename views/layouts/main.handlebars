@@ -12,6 +12,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -24,6 +25,7 @@
     ></script>
   </head>
   <body class="container">
+
     <div class="header">
       <h1>Lets See The World</h1>
     </div>
@@ -44,6 +46,18 @@
               <li><a href="/login">Log In</a></li>
             {{/if}}
           </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+                <button class="dropbtn">Sort Post by Country</button>
+                    <div class="dropdown-content">
+                        <a href="/italy">Italy</a>
+                        <a href="/spain">Spain</a>
+                        <a href="/greatBritain">Great Britain</a>
+                        <a href="/usa">USA</a>
+                        <a href="/turkie">Turkie</a>
+                    </div>
+            </div>
+        </ul>
         </div>
       </div>
     </nav>
