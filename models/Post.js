@@ -37,7 +37,11 @@ Post.init(
             }
         },
         country_id: {
-            type: DataTypes.STRING,    
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'country',
+                key: 'id'
+            }    
         }
     },
     {
