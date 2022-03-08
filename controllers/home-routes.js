@@ -59,6 +59,10 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/add-post', (req, res) => {
+  res.render('add-post');
+});
+
 router.get('/spain', (req, res) => {
   res.render('spain');
 });
