@@ -35,8 +35,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="/signup">Sign Up</a></li>
             <li><a href="/add-post">Add Post</a></li>
+            <li><a href="/signup">Sign Up</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-center">
@@ -50,8 +50,8 @@
             <div class="dropdown">
                 <button class="dropbtn">Sort Post by Country</button>
                     <div class="dropdown-content">
-                        <a href="/italy">Italy</a>
-                        <a href="/spain">Spain</a>
+                        <a href="/italyhb">Italy</a>
+                        <a href="/spainhb">Spain</a>
                         <a href="/greatBritain">Great Britain</a>
                         <a href="/usa">USA</a>
                         <a href="/turkie">Turkie</a>
@@ -65,5 +65,7 @@
     {{{body}}}
   </body>
 
+{{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+  {{/if}}
 </html>

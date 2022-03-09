@@ -27,7 +27,7 @@ body {
 
 /* Style the top navigation bar */
 .topnav {
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #333;
 }
 
