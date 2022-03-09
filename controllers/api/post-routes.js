@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 // add country to const below 
-const { Post, User, Comment } = require('../../models') 
+const { Post, User, Comment, Country } = require('../../models') 
 
 // get all posts 
 router.get('/', (req, res) => {
@@ -26,10 +26,15 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
-        }
+        },
+        { 
+          model: Country,
+          attributes: ['id']
+          }
       ]
     })
-      .then(dbPostData => res.json(dbPostData))
+    
+      .then(dbPostData => res.json(dbPostData), console.log('whatsup'))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -60,6 +65,10 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
+        },
+        {
+          model: Country,
+          attributes: ['id']
         }
       ]
     })
@@ -80,7 +89,9 @@ router.get('/', (req, res) => {
     Post.create({
       title: req.body.title,
       text: req.body.text,
+      country_id: req.body.country_id,
       user_id: req.session.user_id
+
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -144,5 +155,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  
 
 module.exports = router;

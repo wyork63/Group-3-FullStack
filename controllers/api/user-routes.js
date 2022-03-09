@@ -28,9 +28,9 @@ router.get('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
-    
-          res.json(dbUserData);
         });
+        console.log('save session')
+        res.json(dbUserData);
       })
       .catch(err => {
         console.log(err);

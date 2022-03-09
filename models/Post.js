@@ -41,7 +41,7 @@ Post.init(
             references: {
                 model: 'country',
                 key: 'id'
-            }
+            }    
         }
     },
     {

@@ -1,3 +1,4 @@
+
  <div class="container row">
     <h1>Hi, Welcome to your Dashboard</h1>
   <h2>Share your thoughts on a location!</h2>
@@ -9,25 +10,22 @@
     <br>
     <div>
       <label for="text">Description</label>
-    </div>
-    <div>
-        <textarea rows="7" cols="40" id="text" name="text"> </textarea>
+      <br>
+      <textarea id="text" name="description" rows="7" cols="40"> </textarea> 
     </div>
     <br>
-    <form>
         <label for="country">What Country?</label>
-        <select name="country" id="country" name="country"> 
-            <option value="France">France</option>
-            <option value="Spain">Spain</option>
-            <option value="United States">United States</option>
-            <option value="China">China</option>
-            <option value="Italy">Italy</option>
+        <select id="country" name="country"> 
+            <option value="1">Italy</option>
+            <option value="2">Spain</option>
+            <option value="3">Great Britain</option>
+            <option value="4">USA</option>
+            <option value="5">Turkie</option>
         </select>
-    </form>
+    <br> 
     <button type="submit" class="btn">Create</button>
   </form>
+
+  
 </div>
-
-
-
-<script src="/public/javascript/add-post.js"></script>
+<script src="/javascript/add-post.js"></script>
