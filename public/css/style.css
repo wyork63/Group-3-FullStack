@@ -1,3 +1,4 @@
+/* CSS for background image  */
 html {
   background: url(../images/earth.jpg) no-repeat center fixed;
   background-size: cover;
@@ -5,14 +6,10 @@ html {
 
 .container {
   background: transparent;
+  color: white;
 }
 
-body {
-  font-family: Arial;
-  padding: 20px;
-  background: #f1f1f1;
-}
-
+/* Style for the title */
 .header {
   background-color: none;
   padding: 30px;
@@ -35,46 +32,19 @@ body {
   background-color: #333;
 }
 
-
-.description {
-  background-color: none;
-  padding: 20px;
-  text-align: left;
-  color: #ddd;
-}
-
-.box {
-  background-color: none;
-  text-align: left;
-  color: black;
-}
-
-/* Style the top navigation bar */
-.nav2 {
-  overflow: hidden;
-  background-color: black;
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
+/* Spacing in the login page  */
 .log {
   padding: 14px 16px;
   text-decoration: none;
 }
 
+/* Spacing in the signup page  */
 .signup {
   padding: 14px 16px;
   text-decoration: none;
 }
 
-.form-group {
-  color: #ddd;
-}
-
+/* CSS for footer  */
 .footer {
   background-color: #333;
   color: white;
@@ -83,16 +53,13 @@ body {
   text-align: left;
 }
 
-.post_item {
-  background-color: whitesmoke;
-}
 
+/* CSS for the posts on home page  */
 #title-box {
   width: 10px;
   align-self: center;
   padding: 20px;
   background-color: transparent;
-  color: black;
 }
 
 #box {
@@ -105,6 +72,8 @@ body {
   text-align: center;
   color: black;
 }
+
+
 
 /* CSS for drop down  */
 .dropbtn {
