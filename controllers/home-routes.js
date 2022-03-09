@@ -42,7 +42,6 @@ router.get('/', (req, res) => {
         posts,
         loggedIn: req.session.loggedIn
       });
-      console.log(dbPostData)
     })
     .catch(err => {
       console.log(err);
@@ -80,16 +79,20 @@ router.get('/spainhb', (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Country,
+        attributes: ['id']
       }
     ]
   })
     .then(dbPostData => {
-      console.log('hello')
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+      const posts = dbPostData.map(posts => posts.get({ plain: true }));
       res.render('spainhb', {
         posts,
         loggedIn: req.session.loggedIn
       });
+      console.log(dbPostData)
     })
     .catch(err => {
       console.log(err);
