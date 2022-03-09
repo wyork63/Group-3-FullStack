@@ -65,7 +65,8 @@ router.get('/spainhb', (req, res) => {
       'id',
       'title',
       'text',
-      'created_at'
+      'created_at',
+      'country_id'
     ],
     include: [
       {
@@ -80,24 +81,20 @@ router.get('/spainhb', (req, res) => {
         model: User,
         attributes: ['username']
       },
-      {
-        model: Country,
-        attributes: ['id']
-      }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(posts => posts.get({ plain: true }));
+// code for posting by country_id
+  .then(dbPostData => {
+    const spainPosts = dbPostData.filter(x => {
+      return (x.country_id == 2)});
+      const posts = spainPosts.map(posts => posts.get({ plain: true }));
       res.render('spainhb', {
         posts,
         loggedIn: req.session.loggedIn
       });
-      console.log(dbPostData)
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      // console.log(spainPosts)
+      console.log(posts)
+})
 });
 
 // route for italy =1 
@@ -107,7 +104,8 @@ router.get('/italyhb', (req, res) => {
       'id',
       'title',
       'text',
-      'created_at'
+      'created_at',
+      'country_id'
     ],
     include: [
       {
@@ -124,19 +122,19 @@ router.get('/italyhb', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      console.log('hello')
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('italyhb', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+// code for posting by country_id
+.then(dbPostData => {
+  const italyPosts = dbPostData.filter(x => {
+    return (x.country_id == 1)});
+    const posts = italyPosts.map(posts => posts.get({ plain: true }));
+    res.render('italyhb', {
+      posts,
+      loggedIn: req.session.loggedIn
     });
-});
+    // console.log(spainPosts)
+    console.log(posts)
+})
+});    
 
 //route for turkie = 5 
 router.get('/turkie', (req, res) => {
@@ -145,7 +143,8 @@ router.get('/turkie', (req, res) => {
       'id',
       'title',
       'text',
-      'created_at'
+      'created_at',
+      'country_id'
     ],
     include: [
       {
@@ -162,19 +161,19 @@ router.get('/turkie', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      console.log('hello')
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('turkie', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+// code for posting by country_id
+.then(dbPostData => {
+  const turkiePosts = dbPostData.filter(x => {
+    return (x.country_id == 5)});
+    const posts = turkiePosts.map(posts => posts.get({ plain: true }));
+    res.render('turkie', {
+      posts,
+      loggedIn: req.session.loggedIn
     });
-});
+    // console.log(spainPosts)
+    console.log(posts)
+})
+});    
 
 //route for usa = 4
 router.get('/usa', (req, res) => {
@@ -183,7 +182,8 @@ router.get('/usa', (req, res) => {
       'id',
       'title',
       'text',
-      'created_at'
+      'created_at',
+      'country_id'
     ],
     include: [
       {
@@ -200,19 +200,19 @@ router.get('/usa', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      console.log('hello')
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('usa', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+// code for posting by country_id
+.then(dbPostData => {
+  const usaPosts = dbPostData.filter(x => {
+    return (x.country_id == 4)});
+    const posts = usaPosts.map(posts => posts.get({ plain: true }));
+    res.render('usa', {
+      posts,
+      loggedIn: req.session.loggedIn
     });
-});
+    // console.log(spainPosts)
+    console.log(posts)
+})
+});    
 
 //route for greatbritain = 3
 router.get('/greatBritain', (req, res) => {
@@ -221,7 +221,8 @@ router.get('/greatBritain', (req, res) => {
       'id',
       'title',
       'text',
-      'created_at'
+      'created_at',
+      'country_id'
     ],
     include: [
       {
@@ -238,19 +239,19 @@ router.get('/greatBritain', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      console.log('hello')
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('greatBritain', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+// code for posting by country_id
+.then(dbPostData => {
+  const gbPosts = dbPostData.filter(x => {
+    return (x.country_id == 3)});
+    const posts = gbPosts.map(posts => posts.get({ plain: true }));
+    res.render('greatBritain', {
+      posts,
+      loggedIn: req.session.loggedIn
     });
-});
+    // console.log(spainPosts)
+    console.log(posts)
+})
+});  
 
 
 //routes to go to other pages
