@@ -11,13 +11,13 @@ const postdata = [
     title: 'tite 2',
     text: 'post body',
     user_id: 1,
-    country_id: 1
+    country_id: 2
   },
   {
     title: 'tite 3',
     text: 'post body',
     user_id: 2,
-    country_id: 1
+    country_id: 2
   },
   {
     title: 'tite 4',
@@ -29,7 +29,7 @@ const postdata = [
     title: 'tite 5',
     text: 'post body',
     user_id: 3,
-    country_id: 1
+    country_id: 3
   },
   {
     title: 'tite 6',
@@ -47,7 +47,7 @@ const postdata = [
     title: 'tite 8',
     text: 'post body',
     user_id: 1,
-    country_id: 1
+    country_id: 4
   },
   {
     title: 'tite 9',
