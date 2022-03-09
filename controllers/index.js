@@ -16,5 +16,4 @@ router.use('/api', apiRoutes);
 // for country pages
 
 
-
 module.exports = router;
