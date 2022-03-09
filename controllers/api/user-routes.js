@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
       password: req.body.password
     })
       .then(dbUserData => {
-        console.log('hello')
           //accessing the session information
         req.session.save(() => {
           req.session.user_id = dbUserData.id;
@@ -96,6 +95,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 
 router.post('/logout', (req, res) => {

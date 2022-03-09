@@ -4,20 +4,22 @@ module.exports = {
         date
       ).getFullYear()}`;
     },
-    format_url: url => {
-      return url
-        .replace('http://', '')
-        .replace('https://', '')
-        .replace('www.', '')
-        .split('/')[0]
-        .split('?')[0];
+    format_post: text => {
+      if (text.length > 10){
+        return text.substring(0,10) + '...';
+      }  
+      return text;
     },
     format_plural: (word, amount) => {
-      if (amount !== 1) {
-        return `${word}s`;
+      if (amount == 0) {
+        return `No Comments`;
       }
-  
-      return word;
+      else if (amount !== 1) {
+        return `${amount}` + ` ` +  `${word}s`;
+      } else {
+        return `${amount}` + ` ` +  `${word}`;
+      }
     }
   };
   
+

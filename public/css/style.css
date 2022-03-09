@@ -20,11 +20,11 @@ body {
   text-align: center;
   color: #ddd;
 }
-.header2 {
-  background-color: none;
-  padding: 30px;
-  text-align: left;
-  color: #ddd;
+
+/* Style the top navigation bar */
+.topnav {
+  /* overflow: hidden; */
+  background-color: #333;
 }
 
 .description {
@@ -66,6 +66,11 @@ body {
 .form-group {
   color: #ddd;
 }
+
+.footer {
+  background-color: gray;
+}
+
 
 /* CSS for drop down  */
 .dropbtn {

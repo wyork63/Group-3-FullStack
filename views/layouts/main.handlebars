@@ -1,70 +1,22 @@
 <html>
-  <head>
-    <title>
-      {{#if loggedin}}
-        Welcome
-        {{userName}}
-      {{else}}
-        Travel Blog
-      {{/if}}
-    </title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-    ></script>
-  </head>
-  <body class="container">
-      <div class="header">
-        <h1>The SWT Travel Blog</h1>
-        <h2>Lets see the World</h2>
-      </div>
-      <nav>
-        <div class="container-fluid">
-          <div
-            class="collapse navbar-collapse"
-            id="bs-example-navbar-collapse-1"
-          >
-            <ul class="nav navbar-nav">
-              <li class="nav2"><a href="/">Home</a></li>
-              <li class="nav2"><a href="/signup">Sign Up</a></li>
-              <li class="nav2"><a href="/add-post">Add Post</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-center">
-              {{#if loggedin}}
-                <button id="logout" class="btn-no-style">Logout</button>
-              {{else}}
-                <li class="nav2"><a href="/login">Log In</a></li>
-              {{/if}}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <div class="dropdown">
-                <button class="dropbtn">Sort Post by Country</button>
-                <div class="dropdown-content">
-                  <a href="/italy">Italy</a>
-                  <a href="/spain">Spain</a>
-                  <a href="/greatBritain">Great Britain</a>
-                  <a href="/usa">USA</a>
-                  <a href="/turkie">Turkie</a>
-                </div>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <head>
+		<title>
+        {{#if loggedin}}
+			Welcome {{userName}}
+		{{else }}
+			Travel Blog
+		{{/if}}
+		</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body class="container">
+        {{> header }}
+        {{{ body }}}
+        {{> footer }}
+    </body>
     
-
-    {{{body}}}
-  </body>
-
+{{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+  {{/if}}
 </html>
