@@ -72,8 +72,29 @@ html {
   text-align: center;
   color: black;
 }
+.black {
+  color: black;
+}
 
+/* addpost page */
+.title {
+  color: white;
+  -webkit-text-stroke: white 1px;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif; 
+}
 
+.body {
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  color: black;
+}
+
+.meta {
+  font-size: 15px;
+  -webkit-text-stroke: black .5px;
+}
 
 /* CSS for drop down  */
 .dropbtn {

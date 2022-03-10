@@ -5,8 +5,8 @@ module.exports = {
       ).getFullYear()}`;
     },
     format_post: text => {
-      if (text.length > 50){
-        return text.substring(0,50) + '...';
+      if (text.length > 250){
+        return text.substring(0,250) + '...';
       }  
       return text;
     },

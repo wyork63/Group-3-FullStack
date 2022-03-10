@@ -92,8 +92,6 @@ router.get('/spainhb', (req, res) => {
         posts,
         loggedIn: req.session.loggedIn
       });
-      // console.log(spainPosts)
-      console.log(posts)
 })
 });
 
@@ -131,8 +129,7 @@ router.get('/italyhb', (req, res) => {
       posts,
       loggedIn: req.session.loggedIn
     });
-    // console.log(spainPosts)
-    console.log(posts)
+
 })
 });    
 
@@ -170,8 +167,7 @@ router.get('/turkie', (req, res) => {
       posts,
       loggedIn: req.session.loggedIn
     });
-    // console.log(spainPosts)
-    console.log(posts)
+    
 })
 });    
 
@@ -209,8 +205,8 @@ router.get('/usa', (req, res) => {
       posts,
       loggedIn: req.session.loggedIn
     });
-    // console.log(spainPosts)
-    console.log(posts)
+    
+    
 })
 });    
 
@@ -248,8 +244,8 @@ router.get('/greatBritain', (req, res) => {
       posts,
       loggedIn: req.session.loggedIn
     });
-    // console.log(spainPosts)
-    console.log(posts)
+   
+  
 })
 });  
 
