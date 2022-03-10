@@ -1,4 +1,4 @@
-
+/* CSS for background image  */
 html {
   background: url(../images/earth.jpg) no-repeat center fixed;
   background-size: cover;
@@ -6,18 +6,10 @@ html {
 
 .container {
   background: transparent;
+  color: white;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: #f1f1f1;
-}
-
+/* Style for the title */
 .header {
   background-color: none;
   padding: 30px;
@@ -25,46 +17,84 @@ body {
   color: #ddd;
 }
 
+/* Style the country title */
+.post-title {
+  background-color: none;
+  padding: 10px;
+  text-align: left;
+  color: #ddd;
+}
+
 /* Style the top navigation bar */
-.topnav {
-  /* overflow: hidden; */
+#nav {
+  position: sticky;
+  top: 0;
   background-color: #333;
 }
 
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
+/* Spacing in the login page  */
 .log {
   padding: 14px 16px;
   text-decoration: none;
 }
 
+/* Spacing in the signup page  */
 .signup {
   padding: 14px 16px;
   text-decoration: none;
 }
 
-.form-group {
-  color: #ddd;
-}
-
+/* CSS for footer  */
 .footer {
-  background-color: gray;
+  background-color: #333;
+  color: white;
+  font-family: Arial;
+  font:bolder;
+  text-align: left;
 }
 
+
+/* CSS for the posts on home page  */
+#title-box {
+  width: 10px;
+  align-self: center;
+  padding: 20px;
+  background-color: transparent;
+}
+
+#box {
+  width: 400px;
+  background-color: white;
+  padding: 40px;
+  border-collapse: separate;
+  border: 1px solid blue;
+  box-shadow: 5px 10px 8px #888888;
+  text-align: center;
+  color: black;
+}
+.black {
+  color: black;
+}
+
+/* addpost page */
+.title {
+  color: white;
+  -webkit-text-stroke: white 1px;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+.body {
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  color: black;
+}
+
+.meta {
+  font-size: 15px;
+  -webkit-text-stroke: black .5px;
+}
 
 /* CSS for drop down  */
 .dropbtn {
@@ -85,7 +115,7 @@ body {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -96,8 +126,14 @@ body {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #969696;}
+.dropdown:hover .dropbtn {
+  background-color: #969696;
+}

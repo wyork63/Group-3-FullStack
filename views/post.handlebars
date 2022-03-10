@@ -1,3 +1,4 @@
+<div class="background"> 
 <article>
     <div class="title">
         {{post.title}}
@@ -5,21 +6,25 @@
     <div class="body">
         {{post.text}}
     </div>
+    <br>
     <div class="meta">
-        <strong>Posted by {{user.username}} on {{format_date post.created_at}}</strong>
+        {{!-- <div>Posted by {{user.username}}</div> --}}
+        <div>Comments</div> 
     </div>
-</article>
+    <br>
+</article class="meta1">
 
 {{> comments post.comments}}
 
 {{!-- {{#if loggedIn}} --}}
+<br>
 <form class="comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea class="form-control" name="comment-body" placeholder="Leave a comment about this post!"></textarea>
   </div>
-
+  <br>
   <div>
-    <button type="submit">add comment</button>
+    <button class="btn btn-primary" type="submit">add comment</button>
   </div>
 </form>
 {{!-- {{/if}} --}}
@@ -27,3 +32,4 @@
 {{!-- {{#if loggedIn}} --}}
 <script src="/javascript/comment.js"></script>
 {{!-- {{/if}} --}}
+</div>
