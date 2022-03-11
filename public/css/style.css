@@ -32,6 +32,14 @@ html {
   background-color: #333;
 }
 
+#logout {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+}
+
+
+
 /* Spacing in the login page  */
 .log {
   padding: 14px 16px;
