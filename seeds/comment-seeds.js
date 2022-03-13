@@ -9,12 +9,12 @@ const commentdata = [
   {
     comment_text: 'Such a cool spot thank you for sharing',
     user_id: 2,
-    post_id: 4
+    post_id: 3
   },
   {
     comment_text: 'This was an awesome right up! Thank you for sharing with us',
     user_id: 1,
-    post_id: 2
+    post_id: 3
   },
   {
     comment_text: 'dang this sounds like a great experience hope to go soon',

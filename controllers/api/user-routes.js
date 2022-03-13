@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+const { json } = require('express/lib/response');
 const { CLIENT_PS_MULTI_RESULTS } = require('mysql/lib/protocol/constants/client');
 const { User, Post, Comment } = require('../../models');
 // const withAuth = require('../../utils/auth');
@@ -28,9 +29,8 @@ router.get('/', (req, res) => {
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
+          res.json(dbUserData);
         });
-        console.log('save session')
-        res.json(dbUserData);
       })
       .catch(err => {
         console.log(err);
@@ -63,9 +63,9 @@ router.get('/', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
-      
-      //accessing the session information
-      console.log("saving session");
+        console.log("Saving session")
+        res.json();
+        //res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
     });
 });
