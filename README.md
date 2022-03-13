@@ -5,8 +5,8 @@ Shafat, Tsira, and Will Full Stack Project
 
 An app for travelers to share fun ideas with one another. 
 
-## Link to live app on Heroku
-[Click here for live applicatoin](https://sheltered-peak-50835.herokuapp.com/)
+## Click image to be taken to live application on Heroku
+[![Click image for live applicatoin](./public/images/screenshotOfApp.png)](https://sheltered-peak-50835.herokuapp.com/)
 
 ## Table of Contents
 
