@@ -3,6 +3,8 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 // add country to const below
 const { Post, User, Comment, Country } = require("../../models");
+const { route } = require('../home-routes');
+
 
 // get all posts
 router.get("/", async (req, res) => {
@@ -106,6 +108,7 @@ router.put("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 router.delete("/:id", (req, res) => {
   Post.destroy({
