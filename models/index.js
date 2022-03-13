@@ -2,8 +2,8 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Country = require('./Country');
-const Activity = require('./Activity');
-const ActivityLog = require('./ActivityLog');
+// const Activity = require('./Activity');
+// const ActivityLog = require('./ActivityLog');
 
 //relationship between tables
 User.hasMany(Post, {
@@ -25,19 +25,25 @@ Post.belongsTo(Country, {
 });
 
 //many to many relationshiop using comment through table
-User.belongsToMany(Post, {
-  through: Comment,
-  as: 'commented_posts',
-  foreignKey: 'user_id'
-});
+// User.belongsToMany(Post, {
+//   through: {
+//     model:Comment,unique: false
+//   },
+//   // as: 'commented_posts',
+//   // foreignKey: 'user_id'
+// });
 
-Post.belongsToMany(User, {
-  through: Comment,
-  as: 'commented_posts',
-  foreignKey: 'post_id'
-});
+// Post.belongsToMany(User, {
+//   through: {
+//     model:Comment,unique: false
+//   },
+//   // as: 'commented_posts',
+//   // foreignKey: 'post_id'
+// });
 
-//direct relationship between post and comment OR yser and comment
+
+
+// direct relationship between post and comment OR user and comment
 User.hasMany(Comment, {
   foreignKey: 'user_id'
 });
@@ -56,13 +62,5 @@ Comment.belongsTo(Post, {
   onDelete: 'cascade'
 });
 
-//should this be activity_log? not sure
-Post.hasMany(Activity, {
-  foreignKey: 'post_id'
-});
 
-Activity.belongsTo(Post, {
-  foreignKey: 'post_id'
-});
-
-module.exports = { User, Post, Comment, Country, Activity, ActivityLog }
+module.exports = { User, Post, Comment, Country }

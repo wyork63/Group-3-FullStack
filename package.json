@@ -1,5 +1,5 @@
 {
-  "name": "museum-paintings",
+  "name": "travel_blog",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -17,10 +17,25 @@
     "express": "^4.17.3",
     "express-handlebars": "^5.3.5",
     "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
     "handlebars": "^4.7.7",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "validator": "^13.7.0",
+    "yup": "^0.32.11"
   },
-  "description": ""
+  "description": "Shafat, Tsira, and Will Full Stack Project",
+  "devDependencies": {
+    "minimist": "^1.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyork63/Group-3-FullStack.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/wyork63/Group-3-FullStack/issues"
+  },
+  "homepage": "https://github.com/wyork63/Group-3-FullStack#readme"
 }
