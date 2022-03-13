@@ -1,10 +1,11 @@
 const router = require("express").Router();
-// const { HasMany } = require('sequelize/types');
 const sequelize = require("../../config/connection");
 // add country to const below
 const { Post, User, Comment, Country } = require("../../models");
+const { body, validationResult} = require('express-validator');
 
 // get all posts
+//user raw SQL queries to work around the many to many relationship constraints
 router.get("/", async (req, res) => {
   console.log("======================");
   try {
@@ -23,6 +24,8 @@ router.get("/", async (req, res) => {
   }
 });
 
+// get a single post
+//user raw SQL queries to work around the many to many relationship constraints
 router.get("/:id", async(req, res) => {
   try {
     const [results, metadata] =
@@ -41,47 +44,34 @@ router.get("/:id", async(req, res) => {
   }
 });
 
-// router.post("/", async(req, res) => {
-//   const {title, text, country_id, user_id}= req.body;
-//   try {
-//     const [results, metadata] =
-//       await sequelize.query(`INSERT INTO post (title, text, country_id, user_id) VALUES ('${ req.body.title}','${ req.body.text}', ${ req.body.country_id},${ req.body.user_id});`);
-//       res.json(results);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+router.post("/",
+    body('title').notEmpty().withMessage('Post title cannot be null')
+    .bail()
+    .isLength({min: 4, max: 32}).withMessage ('Post title must have min 4 and max 32 characters'), 
+    body('text').notEmpty().withMessage('Post body cannot be null')
+    .bail()
+    .isLength({min: 4, max: 1000}).withMessage ('Post body must have min 4 and max 1000 characters'), 
+     (req, res) => {
 
+      const errors = validationResult(req)
+    if(!errors.isEmpty()){
+      return res.status(400).send("Post input validation failed");
+      //return res.send(errors.array())
+    }
 
-
-router.post("/", (req, res) => {
-  Post.create({
-    title: req.body.title,
-    text: req.body.text,
-    country_id: req.body.country_id,
-    user_id: req.body.user_id,
-    // user_id: req.session.user_id,
-  })
-    .then((dbPostData) => res.json(dbPostData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    Post.create({
+      title: req.body.title,
+      text: req.body.text,
+      country_id: req.body.country_id,
+      //user_id: req.body.user_id,
+      user_id: req.session.user_id,
+    })
+      .then((dbPostData) => res.json(dbPostData))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   });
-
-// router.put('/upvote', (req, res) => {
-//   // make sure the session exists first
-//   if (req.session) {
-//     // pass session id along with all destructured properties on req.body
-//     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-//       .then(updatedVoteData => res.json(updatedVoteData))
-//       .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   }
-// });
 
 router.put("/:id", (req, res) => {
   Post.update(

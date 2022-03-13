@@ -3,7 +3,11 @@ const router = require('express').Router();
 const { json } = require('express/lib/response');
 const { CLIENT_PS_MULTI_RESULTS } = require('mysql/lib/protocol/constants/client');
 const { User, Post, Comment } = require('../../models');
-// const withAuth = require('../../utils/auth');
+
+const { sequelize } = require('../../models/User');
+const { compareSync } = require('bcrypt');
+
+const { body, validationResult} = require('express-validator');
 
 // get all users
 router.get('/', (req, res) => {
@@ -17,7 +21,23 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.post('/', (req, res) => {
+
+  router.post('/', 
+    body('username').notEmpty().withMessage('username cannot be null')
+    .bail()
+    .isLength({min: 4, max: 32}).withMessage ('username must have min 4 and max 32 characters'), 
+    body('email').notEmpty().withMessage('email cannot be null')
+    .bail()
+    .isEmail().withMessage('must be an email address'),
+    body('password').notEmpty().withMessage('password cannot be null')
+    .bail()
+    .isLength({min: 6}).withMessage ('password must have min 6 characters'), 
+   (req, res) => {
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+      return res.status(400).send("User input validation failed");
+      //return res.send(errors.array())
+    }
     User.create({
       username: req.body.username,
       email: req.body.email,
@@ -110,9 +130,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // expects {username: 'Bill', email: 'bill@gmail.com', password: 'password'}
-
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -161,5 +178,21 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 })
+
+
+function isEmailInUse(email){
+  return new Promise((resolve, reject) => {
+      sequelize.query(`SELECT username FROM user WHERE email ='${email}'`,  function (error, results, fields) {
+          if(!error){
+              console.log("EMAIL COUNT : "+results[0].total);
+              return resolve(results[0].total > 0);
+          } else {
+              return reject(new Error('Email in use!'));
+          }
+        }
+      );
+  });
+}
+
 module.exports = router;
 

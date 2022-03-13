@@ -10,6 +10,10 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+
+
+// const ErrorHandler = require('./error/ErrorHandler');
+
 //making sessionn object
 const sess = {
   secret: 'TravelSecret',
@@ -38,6 +42,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 //app.use(routes);
 app.use(require('./controllers/'));
+
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
