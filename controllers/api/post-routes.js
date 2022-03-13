@@ -2,7 +2,9 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 // add country to const below
 const { Post, User, Comment, Country } = require("../../models");
+
 const { body, validationResult} = require('express-validator');
+
 
 // get all posts
 //user raw SQL queries to work around the many to many relationship constraints
@@ -96,6 +98,7 @@ router.put("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 router.delete("/:id", (req, res) => {
   Post.destroy({
