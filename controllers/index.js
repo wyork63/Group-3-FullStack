@@ -12,8 +12,4 @@ const homeRoutes = require('./home-routes.js');
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
-
-// for country pages
-
-
 module.exports = router;
