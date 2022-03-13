@@ -66,7 +66,8 @@ router.get('/spainhb', (req, res) => {
       'title',
       'text',
       'created_at',
-      'country_id'
+      'country_id',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
     ],
     include: [
       {
@@ -103,7 +104,8 @@ router.get('/italyhb', (req, res) => {
       'title',
       'text',
       'created_at',
-      'country_id'
+      'country_id',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
     ],
     include: [
       {
@@ -141,7 +143,8 @@ router.get('/turkie', (req, res) => {
       'title',
       'text',
       'created_at',
-      'country_id'
+      'country_id',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
     ],
     include: [
       {
@@ -179,7 +182,8 @@ router.get('/usa', (req, res) => {
       'title',
       'text',
       'created_at',
-      'country_id'
+      'country_id',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
     ],
     include: [
       {
@@ -218,7 +222,8 @@ router.get('/greatBritain', (req, res) => {
       'title',
       'text',
       'created_at',
-      'country_id'
+      'country_id',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
     ],
     include: [
       {

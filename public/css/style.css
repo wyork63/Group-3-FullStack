@@ -32,6 +32,20 @@ html {
   background-color: #333;
 }
 
+.logout {
+  top: 0;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
 /* Spacing in the login page  */
 .log {
   padding: 14px 16px;
