@@ -31,7 +31,7 @@ An app for travelers to share fun ideas with one another.
   This app is licensed under the MIT license.
 
   ## Contributors
-  Contributors: Tsira (@KvTsira), Shafat (@srahman9), Will (@wyork63)
+  Contributors: Tsira (@KvTsira), Shafat (@srahman9[(https://github.com/srahman9)]), Will (@wyork63)
 
   ## Questions 
   Please contact Will at w.york63@gmail.com if there are any questions about this project. 
